@@ -3,90 +3,111 @@ Name: CJ Horlebein
 Date: March 20, 2018
 
 Copy of Rock, Paper, Scissors from the Bootcamp: The Odin Project.
+
+All images, thoughts, shapes, and opinions were found via internet and google. 
 -->
 
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Title Page</title>
+  <title>Rock or Paper or Scissors</title>
   <style>
+  body{
+  	background-image: url("http://www.harveymaria.com/core/media/media.nl?id=68606&c=626987&h=1567f49f64e067dec0be");
+  	background-color: #002365;
+  	color: #FFD700;
+  	font-family: arial;
+  }
+
+  .coreArea{
+  	position: fixed;
+  	width: 50%;
+  	height: 80%;
+  	min-width: 300px;
+  	top:5%;
+  	left:25%;
+  	font-size: 18px;
+  	background-color: #002365;
+  	border-style: solid;
+  	border-width: 2px;
+  	border-color: black;
+  	border-radius: 5%;
+  	padding: 20px;
+  	margin-bottom: 20px;
+  }
+
+  .ruleArea{
+  	position: relative;
+  	width:50%;
+  	left: 5%;
+  }
+
+  
+
+  .btn{
+  	display: inline-block;
+  	background-color: white;
+  	color: black;
+  	border-color: black;
+  	padding: 3px 4px;
+  	margin: 0 5px;
+  }
+
+  .imgRules{
+  	background-color: #0046B0;
+  	position: relative;
+  	left: 60%;
+  	top: -30%;
+  	width: 300px;
+  	height: 300px;
+  	border-radius: 100%
+  }
+
+  .rpsRules{
+  	display: block;
+  	position: relative;
+  	top: 13%;
+  	height: 80%;
+  	margin-left: auto;
+  	margin-right: auto;
+  }
+
   </style>
 </head>
 <body>
-  <script>
-  function computerPlay(){
-  	let rand = Math.floor(Math.random()*3)
-  	if (rand==0) {
-  		return "rock";
-  	} else if (rand == 1){
-  		return "paper";
-  	} else {return "scissors"
-    }
-  }
+	<div class = "coreArea">
+		<div class = "ruleArea">
+			<h2>
+				Rock, Paper, Scissors!
+			</h2>
 
-  function humanPlay(){
-  	let play = prompt("Rock, Paper, Scissors, SHOOT!");
-  	play = play.toLowerCase()
-  	return play;
-  }
+			<p>
+				Step up and play a game with me. I'm not in this for the money, only the challenge. Throw!
+			</p>
 
-  function game(){
-  	let lost = "You lost this game";
-  	let tie = "You tied this game";
-  	let won = "You won this game";
-  	let comp = computerPlay();
-  	let hum = humanPlay();
+			<h4>
+				Rules of the game!
+			</h4>
 
+			<p>
+				Rock, Paper, Scissors is played by two competitors. Each person selects a choice between the options below. Points are assigned depending on who picked what. 
+			</p>
+		</div>
+		<div class = "imgRules">
+			<img class = "rpsRules" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Rock-paper-scissors.svg/1200px-Rock-paper-scissors.svg.png" alt="Rules for RPS">
+		</div>
+		<div class="gameArea">
+			<ul class = "userPuts">
+				<li class = "btn">Rock!</li>
+				<li class = "btn">Paper!</li>
+				<li class = "btn">Scissors</li>
+			</ul>
+			<p>ff</p>
+		</div>
+	</div>
 
-  	if (comp == "rock") {
-  	  if (hum == "scissors") {
-  	  	return false;
-  	  } else if (hum == "paper") {
-  	  	return true;
-  	  } else {return null;}
-  	}
-  	else if (comp == "scissors"){
-  		if (hum == "paper") {
-  			return false;
-  		} else if (hum == "rock") {
-  			return true;
-  		} else {return null;}
-  	}
-  	else if (comp == "paper"){
-  		if (hum == "rock"){
-  			return false;
-  		} else if (hum == "Scissors"){
-  			return true;
-  		} else {return null;}
-  	}
-  	else {return undefined;}
-  }
-
-
-  function tournament(){
-
-  	let wins = 0;
-  	let lose = 0;
-  	let ties = 0;
-
-  	for (i = 0; i<5; i++) {
-  		let outcome = game();
-  	  if(outcome==true){
-  	  	wins++;
-  	  	console.log("Player wins")
-  	  } else if(outcome==false){
-  	  	lose++;
-  	  	console.log("Player loses")
-  	  } else {
-  	  	ties++;
-  	  	console.log("Player ties")
-  	  }
-  	}
-
-  	console.log("Final Score, Wins: " + wins + " Loses: " + lose + " Ties: " + ties + ".")
-  }
-
-  </script>
+	<script>
+	</script>
 </body>
 </html>
