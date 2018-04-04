@@ -16,17 +16,18 @@ All images, thoughts, shapes, and opinions were found via internet and google.
   body{
   	background-image: url("http://www.harveymaria.com/core/media/media.nl?id=68606&c=626987&h=1567f49f64e067dec0be");
   	background-color: #002365;
-  	color: #FFD700;
-  	font-family: arial;
+  	color: #B7950B;
+  	font-family: arial, serif;
+  	min-width: 1000px;
   }
 
   .coreArea{
-  	position: fixed;
   	width: 50%;
-  	height: 80%;
-  	min-width: 300px;
-  	top:5%;
-  	left:25%;
+  	min-width: 800px;
+  	position:absolute;
+  	top: 50%;
+  	left: 50%;
+  	transform: translate(-50%, -50%);
   	font-size: 18px;
   	background-color: #002365;
   	border-style: solid;
@@ -34,31 +35,42 @@ All images, thoughts, shapes, and opinions were found via internet and google.
   	border-color: black;
   	border-radius: 5%;
   	padding: 20px;
-  	margin-bottom: 20px;
   }
 
   .ruleArea{
+  	font-style: italic;
   	position: relative;
   	width:50%;
   	left: 5%;
   }
-
-  
-
-  .btn{
+  .inputList{
   	display: inline-block;
-  	background-color: white;
+  	background-color: #6C3483;
   	color: black;
   	border-color: black;
+  	text-align: center;
+  	border-radius: 5%;
+  	width: 80px;
   	padding: 3px 4px;
-  	margin: 0 5px;
+  	margin: 0 .5px;
+  }
+  .btn{
+  	display: inline-block;
+  	background-color: #6C3483;
+  	color: black;
+  	border-color: black;
+  	text-align: center;
+  	border-radius: 5%;
+  	width: 80px;
+  	padding: 3px 4px;
+  	margin: 0 .5px;
   }
 
   .imgRules{
   	background-color: #0046B0;
   	position: relative;
   	left: 60%;
-  	top: -30%;
+  	top: -300px;
   	width: 300px;
   	height: 300px;
   	border-radius: 100%
@@ -71,6 +83,18 @@ All images, thoughts, shapes, and opinions were found via internet and google.
   	height: 80%;
   	margin-left: auto;
   	margin-right: auto;
+  }
+
+  .gameArea{
+  	position: relative;
+  	left: 5%;
+  	top: -320px;
+  }
+
+  .gameScore{
+  	position: relative;
+  	left: 5%;
+  	top: -280px;
   }
 
   </style>
@@ -93,17 +117,25 @@ All images, thoughts, shapes, and opinions were found via internet and google.
 			<p>
 				Rock, Paper, Scissors is played by two competitors. Each person selects a choice between the options below. Points are assigned depending on who picked what. 
 			</p>
+
+			<h4>
+				Time to test your mettle! Shoot!
+			</h4>
 		</div>
 		<div class = "imgRules">
 			<img class = "rpsRules" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Rock-paper-scissors.svg/1200px-Rock-paper-scissors.svg.png" alt="Rules for RPS">
 		</div>
 		<div class="gameArea">
-			<ul class = "userPuts">
-				<li class = "btn">Rock!</li>
-				<li class = "btn">Paper!</li>
-				<li class = "btn">Scissors</li>
-			</ul>
+			<form>
+				<input type= "button" class = "btn" value = "Rock!">
+				<input type= "button" class = "btn" value = "Paper!">
+				<input type= "button" class = "btn" value = "Scissors!">	
+			</form>
 			<p>ff</p>
+		</div>
+		<div class="gameScore">
+			<h4>Final Score for the game is...</h4>
+			<p class="finalScore">dd<p>
 		</div>
 	</div>
 
