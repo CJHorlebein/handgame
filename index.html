@@ -85,13 +85,13 @@ All images, thoughts, shapes, and opinions were found via internet and google.
   	margin-right: auto;
   }
 
-  .gameArea{
+  #gameArea{
   	position: relative;
   	left: 5%;
   	top: -320px;
   }
 
-  .gameScore{
+  #gameScore{
   	position: relative;
   	left: 5%;
   	top: -280px;
@@ -125,21 +125,106 @@ All images, thoughts, shapes, and opinions were found via internet and google.
 		<div class = "imgRules">
 			<img class = "rpsRules" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Rock-paper-scissors.svg/1200px-Rock-paper-scissors.svg.png" alt="Rules for RPS">
 		</div>
-		<div class="gameArea">
-			<form>
-				<input type= "button" class = "btn" value = "Rock!">
-				<input type= "button" class = "btn" value = "Paper!">
-				<input type= "button" class = "btn" value = "Scissors!">	
-			</form>
-			<p>ff</p>
+		<div id="gameArea">
+			<button class = "btn" id= "rock" >Rock!</button>
+			<button class = "btn" id= "paper" >Paper!</button>
+			<button class = "btn" id= "scissors" >Scissors!</button>
+			<p id="results">You've not played yet!</p>
 		</div>
-		<div class="gameScore">
-			<h4>Final Score for the game is...</h4>
-			<p class="finalScore">dd<p>
+		<div id ="gameScore">
+			<h4>Current Score for the game is...</h4>
+			<p id="finalScore"> 0 wins and 0 loses.<p>
 		</div>
 	</div>
 
+
 	<script>
+	let buttons = document.querySelectorAll("button");
+	let humPlay;
+	let comPlay;
+	let wScore = 0;
+	let lScore = 0;
+
+	buttons.forEach((button) => {
+		button.addEventListener("click",(e)=>{
+
+			let gameArea = document.querySelector("#gameArea");
+			let pRes = document.getElementById("results");
+			let gameScore = document.querySelector("#gameScore");
+			let para = document.getElementById("finalScore");
+			humPlay = button.id;
+			let res = game();
+
+			if (res) {
+				wScore++;
+				pRes.textContent = "Player choose " + humPlay + " and computer choose " + comPlay + ". Player wins this round";
+			} else if (res == false) {
+				lScore++;
+				pRes.textContent = "Player choose " + humPlay + " and computer choose " + comPlay + ". Player loses this round";
+			} else {
+				pRes.textContent = "Player choose " + humPlay + " and computer choose " + comPlay + ". Player ties this round";
+			}
+
+			para.textContent = (wScore + " wins and " + lScore + " losses");
+
+			gameScore.appendChild(para);
+			gameArea.appendChild(pRes);
+
+			if (wScore == 5) {
+				alert("you won!")
+			} else if (lScore == 5) {
+				alert("You didn't win, sorry!")
+			}
+
+			if (wScore== 5 || lScore == 5){
+				wScore = 0;
+				lScore = 0;
+			}
+
+		});
+	});
+
+
+
+	function computerPlay(){
+		let rand = Math.floor(Math.random()*3)
+		if (rand==0) {
+			return "rock";
+		} else if (rand == 1){
+			return "paper";
+		} else {return "scissors"
+		}
+	}
+
+	function game(){
+		comPlay = computerPlay();
+
+		if (comPlay == "rock") {
+		  if (humPlay == "scissors") {
+		  	return false;
+		  } else if (humPlay == "paper") {
+		  	return true;
+		  } else {return null;}
+		}
+		else if (comPlay == "scissors"){
+			if (humPlay == "paper") {
+				return false;
+			} else if (humPlay == "rock") {
+				return true;
+			} else {return null;}
+		}
+		else if (comPlay == "paper"){
+			if (humPlay == "rock"){
+				return false;
+			} else if (humPlay == "scissors"){
+				return true;
+			} else {return null;}
+		}
+		else {return null;}
+	}
+
+
+
 	</script>
 </body>
 </html>

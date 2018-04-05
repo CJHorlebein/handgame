@@ -16,7 +16,7 @@ Copy of Rock, Paper, Scissors from the Bootcamp: The Odin Project.
 <body>
   <script>
   function computerPlay(){
-  	let rand = Math.floor(Math.random()*3)
+  	let rand = Math.floor(Math.random()*3);
   	if (rand==0) {
   		return "rock";
   	} else if (rand == 1){
@@ -27,7 +27,7 @@ Copy of Rock, Paper, Scissors from the Bootcamp: The Odin Project.
 
   function humanPlay(){
   	let play = prompt("Rock, Paper, Scissors, SHOOT!");
-  	play = play.toLowerCase()
+  	play = play.toLowerCase();
   	return play;
   }
 
@@ -56,7 +56,7 @@ Copy of Rock, Paper, Scissors from the Bootcamp: The Odin Project.
   	else if (comp == "paper"){
   		if (hum == "rock"){
   			return false;
-  		} else if (hum == "Scissors"){
+  		} else if (hum == "scissors"){
   			return true;
   		} else {return null;}
   	}
